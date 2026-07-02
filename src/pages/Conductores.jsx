@@ -136,7 +136,7 @@ const eliminar = (id) => {
     Conductores registrados
   </h2>
 
-  <div className="grid grid-cols-3 gap-6">
+  <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
     {conductores.map((c, index) => (
       <article
         key={c.id || index}
@@ -235,7 +235,7 @@ const eliminar = (id) => {
     ))}
 
     {conductores.length === 0 && (
-      <div className="col-span-3 rounded-xl border border-dashed border-gray-300 bg-white p-10 text-center text-lg font-semibold text-gray-400">
+      <div className="col-span-1 md:col-span-3 rounded-xl border border-dashed border-gray-300 bg-white p-10 text-center text-lg font-semibold text-gray-400">
         No hay conductores registrados.
       </div>
     )}

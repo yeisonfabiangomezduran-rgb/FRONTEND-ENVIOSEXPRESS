@@ -143,7 +143,7 @@ export default function Vehiculos() {
         Vehículos registrados
       </h2>
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
 
         {vehiculos.map((v, index) => (
           <article
@@ -247,7 +247,7 @@ export default function Vehiculos() {
         ))}
 
         {vehiculos.length === 0 && (
-          <div className="col-span-3 rounded-xl border border-dashed border-gray-300 bg-white p-10 text-center text-lg font-semibold text-gray-400">
+          <div className="col-span-1 md:col-span-3 rounded-xl border border-dashed border-gray-300 bg-white p-10 text-center text-lg font-semibold text-gray-400">
             No hay vehículos registrados.
           </div>
         )}

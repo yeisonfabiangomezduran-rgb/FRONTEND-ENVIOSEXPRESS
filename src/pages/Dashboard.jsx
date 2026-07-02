@@ -16,7 +16,7 @@ const statusLabels = {
 
 function StatCard({ title, value, trend, trendColor, icon, iconClass }) {
   return (
-    <div className="flex min-h-[130px] min-w-[220px] flex-col justify-between rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
+    <div className="flex min-h-[140px] w-full flex-col justify-between rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <p className="text-sm font-bold text-gray-500">{title}</p>
@@ -97,12 +97,12 @@ export default function Dashboard() {
   return (
     
     <div className="min-h-screen bg-gray-50">
-    <div className="mx-auto max-w-7xl px-8 py-8">
+    <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
       <section className="mb-9">
-        <h1 className="text-4xl font-bold tracking-tight text-gray-900">
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
           Panel de Control
         </h1>
-        <p className="mt-2 text-xl font-semibold text-gray-500">
+        <p className="mt-2 text-base font-semibold text-gray-500 md:text-xl">
           Resumen general de operaciones
         </p>
       </section>
@@ -114,7 +114,7 @@ export default function Dashboard() {
         </div>
       )}
 
-      <section className="mb-6 grid grid-cols-4 gap-4 overflow-x-auto">
+      <section className="mb-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
         <StatCard
           title="Envíos Totales"
           value={cargando ? "..." : resumen.total.toLocaleString("es-CO")}
@@ -150,8 +150,72 @@ export default function Dashboard() {
       </section>
 
       <section className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
-        <div className="overflow-x-auto">
+        <div className="hidden md:block">
           <table className="w-full min-w-[900px] border-collapse text-left">
+            <div className="md:hidden space-y-4">
+
+    {envios.map((envio) => (
+
+        <article
+            key={envio.id}
+            className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm"
+        >
+
+            <div className="mb-4 flex items-center justify-between">
+
+                <h2 className="text-lg font-bold text-blue-600">
+                    {envio.id}
+                </h2>
+
+                <span
+                    className={`rounded-full px-3 py-1 text-sm font-semibold ${
+                        statusStyles[envio.estado]
+                    }`}
+                >
+                    {statusLabels[envio.estado]}
+                </span>
+
+            </div>
+
+            <div className="space-y-3">
+
+                <p>
+
+                    <strong>👤 Cliente:</strong>
+
+                    <br />
+
+                    {envio.cliente}
+
+                </p>
+
+                <p>
+
+                    <strong>📍 Destino:</strong>
+
+                    <br />
+
+                    {envio.destino}
+
+                </p>
+
+                <p>
+
+                    <strong>📅 Fecha:</strong>
+
+                    <br />
+
+                    {envio.fecha}
+
+                </p>
+
+            </div>
+
+        </article>
+
+    ))}
+
+</div>
             <thead>
               <tr className="bg-gray-50 text-sm font-bold uppercase tracking-wide text-gray-500">
                 <th className="border-b border-r border-gray-200 px-8 py-5">ID Envío</th>

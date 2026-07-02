@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { apiFetch } from "../services/api";
 import { colombiaLocations, departamentos } from "../data/colombiaLocations";
 
+
 const emptyLocation = {
   origenDepartamento: "",
   origenMunicipio: "",
@@ -247,7 +248,7 @@ export default function Envios() {
     </button>
   </div>
 
-  <form onSubmit={guardar} className="grid grid-cols-2 gap-4">
+  <form onSubmit={guardar} className="grid grid-cols-1 gap-4 md:grid-cols-2">
 
     {/* Cliente */}
     <input
@@ -265,7 +266,7 @@ export default function Envios() {
       value={form.descripcion}
       onChange={handleChange}
       placeholder="Descripción"
-      className="h-14 rounded-xl border border-gray-200 px-4 font-medium shadow-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+      className="h-14 rounded-xl border border-gray-200 px-4 font-medium shadow-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100 md:col-span-2"
     />
 
     {/* Estado */}
@@ -362,7 +363,7 @@ export default function Envios() {
     {/* Botón */}
     <button
       type="submit"
-      className="col-span-2 h-14 rounded-xl bg-blue-600 text-lg font-bold text-white transition hover:bg-blue-700"
+      className="md:col-span-2 h-14 rounded-xl bg-blue-600 text-lg font-bold text-white transition hover:bg-blue-700"
     >
       {editando ? "Actualizar Envío" : "Guardar Envío"}
     </button>
@@ -375,7 +376,7 @@ export default function Envios() {
         Mostrando {enviosFiltrados.length} de {envios.length} envíos
       </p>
 
-      <section className="grid grid-cols-3 gap-6">
+      <section className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
         {enviosFiltrados.map((envio, index) => (
           <article
             key={envio.id || index}

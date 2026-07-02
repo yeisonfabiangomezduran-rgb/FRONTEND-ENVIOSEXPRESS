@@ -50,6 +50,4 @@
 
 .animate-slideUp {
   animation: slideUp 0.5s ease;
-  background-image: url(...)
-  bg-gradient-to-br from-blue-700 to-blue-500
 }
