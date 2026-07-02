@@ -27,11 +27,11 @@ export default function Login() {
   };
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen flex-col md:flex-row">
 
       {/* PANEL IZQUIERDO */}
       <div
-        className="relative w-1/2 overflow-hidden"
+        className="hidden md:block relative md:w-1/2 overflow-hidden"
         style={{
           backgroundImage: `url(${camion})`,
           backgroundSize: "cover",
@@ -42,7 +42,7 @@ export default function Login() {
         <div className="absolute inset-0 bg-blue-900/75"></div>
 
         {/* CONTENIDO */}
-        <div className="relative z-10 flex h-full flex-col justify-between p-16 text-white">
+        <div className="relative z-10 flex h-full flex-col justify-between p-10 md:p-16 text-white">
 
           <div>
 
@@ -108,9 +108,9 @@ export default function Login() {
       </div>
 
       {/* PANEL DERECHO */}
-      <div className="flex w-1/2 items-center justify-center bg-gray-100 p-8">
+      <div className="flex w-full md:w-1/2 items-center justify-center bg-gray-100 p-6 md:p-8">
 
-        <div className="w-full max-w-md rounded-3xl bg-white p-10 shadow-2xl">
+        <div className="w-full max-w-md rounded-3xl bg-white p-8 md:p-10 shadow-2xl">
 
           {/* ENCABEZADO */}
           <div className="mb-8 text-center">
